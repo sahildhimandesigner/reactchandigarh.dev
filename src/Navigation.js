@@ -8,6 +8,7 @@ const Navigation = () => (
         <li><Link to="/about">About Us</Link></li>
         <li><Link to="/team">Team</Link></li>
         <li><Link to="/events">Events</Link></li>
+        <li><Link to="/signup">Signup</Link></li>
     </ul>
 );
 
