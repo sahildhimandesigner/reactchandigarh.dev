@@ -1,6 +1,7 @@
 import React from 'react'
 import SignUpImg from '../Team/join.png'
 import withStyle from 'react-jss'
+import GithubLogin from './githubSignup'
 
 const signupStyle = {
     container:{
@@ -48,11 +49,9 @@ const signupStyle = {
     },
     signupForm: {
         width: '50%',
-        overflow: 'hidden'
     },
     signupImage: {
         width: '50%',
-        overflow: 'hidden',
     },
     signupImageLink: {
 
@@ -63,21 +62,12 @@ const Signup = ({classes}) => (
     <div className={classes.container}>
         <div className={classes.signupContent}>        
             <div className={classes.signupImage}>
-                <img src={SignUpImg} alt="sing up image" />
+                <img src={SignUpImg} width="450" alt="sing up image" />
                 <a href="#" className={classes.signupImageLink}>I am already member</a>
             </div>    
             <div className={classes.signupForm}>
                 <h2 className={classes.formTitle}>Sign up</h2>
-                <form method="POST" className={classes.registerForm}>
-                    <div className={classes.formGroup}>
-                        <label>Your Name</label>
-                        <input className={classes.inputBox} type="text" name="name" id="name" placeholder="Your Name" />
-                    </div>
-                    <div className={classes.formGroup}>
-                        <label>Your Email</label>
-                        <input className={classes.inputBox} type="email" name="email" id="email" placeholder="Your Email" />
-                    </div>
-                </form>
+                <GithubLogin />
             </div>
         </div>
     </div>

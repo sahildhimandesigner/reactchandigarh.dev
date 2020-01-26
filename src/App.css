@@ -23,6 +23,10 @@
   padding: 6px 10px;
   font-weight: 900;
 }
+.firebaseui-idp-list {
+  width: 100% !important;
+  background: none;
+}
 
 @keyframes App-logo-spin {
   from {
