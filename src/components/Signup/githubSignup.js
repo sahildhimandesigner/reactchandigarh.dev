@@ -4,8 +4,8 @@ import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 
  firebase.initializeApp({
-    apiKey: "AIzaSyAwEehQHjY1gAaUIvGr4aXKoVhoichKO1c",
-    authDomain: "fir-auth-4fa91.firebaseapp.com"
+    apiKey: process.env.REACT_APP_FIREBASE_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
 })
 
 class GithubLogin extends React.Component {
