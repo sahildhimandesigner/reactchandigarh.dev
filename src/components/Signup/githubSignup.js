@@ -2,24 +2,24 @@
 import React from 'react'
 import firebase from 'firebase'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
+import UserProfile from '../UserProfile/index'
 
  firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
 })
-
 class GithubLogin extends React.Component {
     state = { isSignedIn : false}
     uiConfig = {
         signInFlow: "popup",
         signInOptions:[
-            firebase.auth.GithubAuthProvider.PROVIDER_ID,
+            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+            firebase.auth.GithubAuthProvider.PROVIDER_ID
         ],
         callbacks: {
             signInSuccess: () => false
-          }
+        }
     }
-
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(user => {
           this.setState({ isSignedIn: !!user })
@@ -30,20 +30,12 @@ class GithubLogin extends React.Component {
         return(
             <div>
                 {this.state.isSignedIn ? (
-                <span>
-                    <div>Signed In!</div>
-                    <button onClick={() => firebase.auth().signOut()}>Sign out!</button>
-                    <h1>Welcome {firebase.auth().currentUser.displayName}</h1>
-                    <img
-                    alt="profile picture"
-                    src={firebase.auth().currentUser.photoURL}
-                    />
-                </span>
+                    <UserProfile />
                 ) : (
-                <StyledFirebaseAuth
-                    uiConfig={this.uiConfig}
-                    firebaseAuth={firebase.auth()}
-                />
+                    <StyledFirebaseAuth
+                        uiConfig={this.uiConfig}
+                        firebaseAuth={firebase.auth()}
+                    />
                 )}
             </div>
         )
